@@ -8,6 +8,13 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/*
+* A linked list is very ef cient in adding elements in the middle of the list,
+* simply by rearranging the pointers of the nodes in the list.
+* The worst-case performance for this algorithm is still O(n2).
+* The algorithm described here uses twice as much space to sort the list because a new list is returned.
+* The bubble sort algorithm only uses one extra slot in memory, to hold the value temporarily while being swapped.
+*/
 public class InsertSort {
 
     @Test
@@ -25,8 +32,7 @@ public class InsertSort {
 
         final List<Integer> sortedList = new LinkedList<Integer>();
 
-        originalList:
-        for (Integer number : numbers) {
+        originalList : for (Integer number : numbers) {
             for (int i = 0; i < sortedList.size(); i++) {
                 if (number < sortedList.get(i)) {
                     sortedList.add(i, number);
