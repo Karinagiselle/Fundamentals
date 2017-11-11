@@ -1,3 +1,5 @@
+package Comparing;
+
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Test;
