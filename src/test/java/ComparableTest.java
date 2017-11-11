@@ -2,7 +2,9 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ComparableTest {
 
@@ -27,5 +29,26 @@ public class ComparableTest {
         Arrays.sort(strings);
 
         assertThat(strings).isEqualTo(expected);
+    }
+
+    private static class ClassWithNoComparableInterface {
+
+        private int i;
+
+        private ClassWithNoComparableInterface(int i) {
+            this.i = i;
+        }
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void sortArrayOfObjectWithoutComparableInterface() {
+
+        final List<ClassWithNoComparableInterface> objects = new ArrayList();
+
+        for (int i = 0; i < 5; i++) {
+            objects.add(new ClassWithNoComparableInterface(i));
+        }
+
+        Arrays.sort(objects.toArray());
     }
 }
