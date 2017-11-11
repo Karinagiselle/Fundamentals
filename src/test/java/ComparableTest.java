@@ -1,4 +1,5 @@
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.*;
+
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -13,6 +14,18 @@ public class ComparableTest {
 
         Arrays.sort(numbers);
 
-        Assertions.assertThat(expected).isEqualTo(numbers);
+        assertThat(numbers).isEqualTo(expected);
+    }
+
+    /* String implements Comparable */
+    @Test
+    public void sortArrayOfObjectString() {
+
+        final String[] strings = {"zqe", "zqa", "sdw", "aad"};
+        final String[] expected = {"aad", "sdw", "zqa", "zqe"};
+
+        Arrays.sort(strings);
+
+        assertThat(strings).isEqualTo(expected);
     }
 }
