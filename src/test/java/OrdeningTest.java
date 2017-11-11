@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class OrdeningTest {
@@ -50,5 +51,22 @@ public class OrdeningTest {
         }
 
         Arrays.sort(objects.toArray());
+    }
+
+    @Test
+    public void sortCollectionUsingACustomOrdening() {
+
+        final List<Integer> numbers = Arrays.asList(5, 7, 1, 8, 2, 4, 6);
+        final List<Integer> expected = Arrays.asList(8, 7, 6, 5, 4, 2, 1);
+
+        Collections.sort(numbers, new ReverseNumericalOrder());
+
+        assertThat(numbers).isEqualTo(expected);
+    }
+
+    private class ReverseNumericalOrder implements java.util.Comparator<Integer> {
+        public int compare(Integer o1, Integer o2) {
+            return o2 - o1;
+        }
     }
 }
