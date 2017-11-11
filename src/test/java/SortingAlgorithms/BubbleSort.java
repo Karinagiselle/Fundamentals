@@ -9,6 +9,12 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * The worst case, when you want to sort a list that is already sorted in reverse order, is a performance of O(n2):
+ * For each iteration, you are only switching one element. The best case is when a list is already sorted:
+ * You make one pass through the list, and because you have not switched any elements, you can stop.
+ * This has a perfor- mance of O(n).
+ **/
 public class BubbleSort {
 
     @Test
@@ -24,15 +30,18 @@ public class BubbleSort {
 
     private void bubbleSort(int[] numbers) {
 
-        for (int i = 0; i < numbers.length - 1; i++) {
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-
-                if (numbers[j] > numbers[j + 1]) {
-                    int aux = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = aux;
+        boolean numberSwitched;
+        do {
+            numberSwitched = false;
+            for (int i = 0; i < numbers.length - 1; i++) {
+                if (numbers[i] > numbers[i + 1]) {
+                    int aux = numbers[i];
+                    numbers[i] = numbers[i + 1];
+                    numbers[i + 1] = aux;
+                    numberSwitched = true;
                 }
             }
-        }
+        } while (numberSwitched);
+
     }
 }
