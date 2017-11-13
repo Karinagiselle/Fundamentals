@@ -1,6 +1,5 @@
 package DesignPatterns.Creational;
 
-import DesignPatterns.Creational.Student;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -8,31 +7,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BuilderTest {
 
     @Test
-    public void buildStudent() {
-        final String name = "Karina";
-        final String surname = "Blanco";
-        final String doc = "123";
+    public void buildHeroTest() {
+        Hero hero = new HeroBuilder("Poker", Profession.WARRIOR)
+                            .withArmor(Armor.CLOTHES)
+                            .withWeapon(Weapon.AXE)
+                            .build();
 
-        final Student student = new Student.Builder()
-                                            .withName(name)
-                                            .withSurname(surname)
-                                            .withDoc(doc)
-                                            .build();
-
-        assertThat(student.getName()).isEqualTo(name);
-        assertThat(student.getSurname()).isEqualTo(surname);
-        assertThat(student.getDoc()).isEqualTo(doc);
+        assertThat(hero.getName()).isEqualTo("Poker");
+        assertThat(hero.getProfessionl()).isEqualTo(Profession.WARRIOR);
+        assertThat(hero.getArmor()).isEqualTo(Armor.CLOTHES);
+        assertThat(hero.getWeapon()).isEqualTo(Weapon.AXE);
     }
 
     @Test(expected = IllegalStateException.class)
-    public void cannotBuildStudent() {
-        final String name = "Karina";
-        final String surname = "Blanco";
-
-        final Student student = new Student.Builder()
-                .withName(name)
-                .withSurname(surname)
-                .build();
+    public void buildHeroFailTest() {
+        new HeroBuilder("Poker", Profession.WARRIOR)
+                            .build();
     }
 
     @Test
