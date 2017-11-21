@@ -9,7 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /*
-* A linked list is very ef cient in adding elements in the middle of the list,
+* Inner linked list is very ef cient in adding elements in the middle of the list,
 * simply by rearranging the pointers of the nodes in the list.
 * The worst-case performance for this algorithm is still O(n2).
 * The algorithm described here uses twice as much space to sort the list because a new list is returned.
