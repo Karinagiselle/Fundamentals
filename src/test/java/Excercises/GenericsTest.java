@@ -86,4 +86,32 @@ public class GenericsTest {
 
         assertThat(stack).isNotNull();
     }
+
+    @Test
+    public void createBagOfChocolates() {
+        List<Chocolate> chocolateBag = Arrays.asList(new Chocolate(), new Chocolate());
+        Bag bag = new Bag(chocolateBag);
+
+        assertThat(bag.getSize()).isEqualTo(2);
+    }
+
+    @Test
+    public void createBagOfCandies() {
+        List<Candy> candiesBag = Arrays.asList(new Candy(), new Candy(), new Candy());
+        Bag bag = new Bag(candiesBag);
+
+        assertThat(bag.getSize()).isEqualTo(3);
+    }
+
+    @Test
+    public void stackArray() {
+        StackArray stack = new StackArray(5);
+
+        stack.push(1);
+        stack.push("hola");
+
+        assertThat(stack.pop()).isEqualTo("hola");
+        assertThat(stack.pop()).isEqualTo(1);
+        assertThat(stack.isEmpty()).isTrue();
+    }
 }
