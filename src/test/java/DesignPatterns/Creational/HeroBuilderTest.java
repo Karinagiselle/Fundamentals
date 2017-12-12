@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BuilderTest {
+public class HeroBuilderTest {
 
     @Test
     public void buildHeroTest() {
