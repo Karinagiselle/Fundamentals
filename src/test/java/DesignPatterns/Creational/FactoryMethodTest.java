@@ -8,7 +8,7 @@ public class FactoryMethodTest {
 
     @Test
     public void createDog() {
-        Pet pet = AnimalFactory.getAnimal("Dog");
+        Pet pet = AnimalFactory.getAnimal(Animal.DOG);
 
         assertThat(pet).isInstanceOf(Dog.class);
     }
@@ -16,15 +16,13 @@ public class FactoryMethodTest {
 
     @Test
     public void createCat() {
-        Pet pet = AnimalFactory.getAnimal("Cat");
+        Pet pet = AnimalFactory.getAnimal(Animal.CAT);
 
         assertThat(pet).isInstanceOf(Cat.class);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void createDuck() {
-        Pet pet = AnimalFactory.getAnimal("Duck");
-
-        assertThat(pet).isNull();
+        Pet pet = AnimalFactory.getAnimal(Animal.valueOf("Duck"));
     }
 }
