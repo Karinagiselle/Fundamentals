@@ -1,4 +1,4 @@
 package DesignPatterns.Creational;
 
-public class Cat implements Animal {
+public class Cat implements Pet {
 }

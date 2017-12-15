@@ -8,16 +8,23 @@ public class FactoryMethodTest {
 
     @Test
     public void createDog() {
-        Animal animal = AnimalFactory.getAnimal("Dog");
+        Pet pet = AnimalFactory.getAnimal("Dog");
 
-        assertThat(animal).isInstanceOf(Dog.class);
+        assertThat(pet).isInstanceOf(Dog.class);
     }
 
 
     @Test
     public void createCat() {
-        Animal animal = AnimalFactory.getAnimal("Cat");
+        Pet pet = AnimalFactory.getAnimal("Cat");
 
-        assertThat(animal).isInstanceOf(Cat.class);
+        assertThat(pet).isInstanceOf(Cat.class);
+    }
+
+    @Test
+    public void createDuck() {
+        Pet pet = AnimalFactory.getAnimal("Duck");
+
+        assertThat(pet).isNull();
     }
 }

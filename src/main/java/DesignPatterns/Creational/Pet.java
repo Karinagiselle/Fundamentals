@@ -1,4 +1,4 @@
 package DesignPatterns.Creational;
 
-interface Animal {
+interface Pet {
 }
