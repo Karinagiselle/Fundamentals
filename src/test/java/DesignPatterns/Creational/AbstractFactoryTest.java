@@ -8,7 +8,7 @@ public class AbstractFactoryTest {
 
     @Test
     public void createIphone() {
-        PhoneFactory phoneFactory = PhoneFactory.getFactory("Iphone");
+        PhoneFactory phoneFactory = PhoneFactory.getFactory(PhoneCompany.IPHONE);
 
         Glass glass = phoneFactory.createGlass();
         PhoneButton button = phoneFactory.createButton();
@@ -21,7 +21,7 @@ public class AbstractFactoryTest {
 
     @Test
     public void createSamsung() {
-        PhoneFactory phoneFactory = PhoneFactory.getFactory("Samsung");
+        PhoneFactory phoneFactory = PhoneFactory.getFactory(PhoneCompany.SAMSUNG);
 
         Glass glass = phoneFactory.createGlass();
         PhoneButton button = phoneFactory.createButton();
